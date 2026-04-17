@@ -22,9 +22,10 @@ const errorHandler = (err, req, res, next) => {
         res.status(400);
     }
 
-    res.status(error.statusCode || 500).json({
+    res.status(res.statusCode || 500).json({
         success: false,
-        error: error.message || 'Server Error',
+        message: error.message || 'Server Error',
+        error: error.message || 'Server Error'
     });
 };
 

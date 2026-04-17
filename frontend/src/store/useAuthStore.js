@@ -32,10 +32,8 @@ export const useAuthStore = create()(
             return { success: true };
           }
         } catch (error) {
-          set({ 
-            error: error.response?.data?.message || 'Login failed', 
-            loading: false 
-          });
+          const message = error.response?.data?.message || error.response?.data?.error || 'Login failed';
+          set({ error: message, loading: false });
           return { success: false, message: get().error };
         }
       },
@@ -65,11 +63,9 @@ export const useAuthStore = create()(
             return { success: true };
           }
         } catch (error) {
-          console.error('Registration failed:', error.response?.data || error.message);
-          set({ 
-            error: error.response?.data?.message || 'Registration failed', 
-            loading: false 
-          });
+          const message = error.response?.data?.message || error.response?.data?.error || 'Registration failed';
+          console.error('Registration failed:', message);
+          set({ error: message, loading: false });
           return { success: false, message: get().error };
         }
       },
@@ -82,10 +78,8 @@ export const useAuthStore = create()(
           set({ loading: false });
           return response.data;
         } catch (error) {
-          set({ 
-            error: error.response?.data?.message || 'Request failed', 
-            loading: false 
-          });
+          const message = error.response?.data?.message || error.response?.data?.error || 'Request failed';
+          set({ error: message, loading: false });
           return { success: false, message: get().error };
         }
       },
@@ -111,10 +105,8 @@ export const useAuthStore = create()(
             return { success: true };
           }
         } catch (error) {
-          set({ 
-            error: error.response?.data?.message || 'Reset failed', 
-            loading: false 
-          });
+          const message = error.response?.data?.message || error.response?.data?.error || 'Reset failed';
+          set({ error: message, loading: false });
           return { success: false, message: get().error };
         }
       },
