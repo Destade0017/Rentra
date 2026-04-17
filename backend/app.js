@@ -21,6 +21,12 @@ const app = express();
 // Body parser
 app.use(express.json());
 
+// Request logging
+app.use((req, res, next) => {
+    console.log(`${req.method} ${req.url}`);
+    next();
+});
+
 // Dev logging middleware
 if (process.env.NODE_ENV === 'development') {
     app.use(morgan('dev'));
