@@ -124,7 +124,7 @@ export default function Login() {
           </form>
 
           <p className="mt-8 text-center text-slate-400 text-sm font-medium">
-            Don't have an account? <Link to="/register" className="text-brand-500 font-bold hover:text-brand-600">Request demo</Link>
+            Don't have an account? <Link to="/register" className="text-brand-500 font-bold hover:text-brand-600">Sign up</Link>
           </p>
         </div>
       </div>
