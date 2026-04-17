@@ -5,14 +5,9 @@ import api from '../api/axios.js';
 export const useAuthStore = create()(
   persist(
     (set, get) => ({
-      user: { 
-        id: 'mock-landlord-id', 
-        name: 'Demo Admin', 
-        email: 'admin@rentra.io', 
-        role: 'landlord' 
-      },
-      token: 'mock-token',
-      isAuthenticated: true,
+      user: null,
+      token: null,
+      isAuthenticated: false,
       loading: false,
       error: null,
 

@@ -96,36 +96,6 @@ export default function Sidebar() {
           </nav>
 
           <div className="pt-6 border-t border-white/5 space-y-4">
-              <div className="px-4">
-                  <p className="text-[10px] font-black text-brand-300 uppercase tracking-widest mb-3">Portals</p>
-                  <div className="flex gap-2">
-                      <button 
-                        onClick={() => {
-                            useAuthStore.setState({ user: { ...useAuthStore.getState().user, role: 'landlord' } });
-                            navigate('/');
-                        }}
-                        className={cn(
-                            "flex-1 py-3 rounded-xl text-[10px] font-black uppercase transition-all",
-                            user?.role === 'landlord' ? "bg-accent-400 text-brand-600" : "bg-white/10 text-brand-200"
-                        )}
-                      >
-                          Landlord
-                      </button>
-                      <button 
-                        onClick={() => {
-                            useAuthStore.setState({ user: { ...useAuthStore.getState().user, role: 'tenant' } });
-                            navigate('/tenant-dashboard');
-                        }}
-                        className={cn(
-                            "flex-1 py-3 rounded-xl text-[10px] font-black uppercase transition-all",
-                            user?.role === 'tenant' ? "bg-accent-400 text-brand-600" : "bg-white/10 text-brand-200"
-                        )}
-                      >
-                          Tenant
-                      </button>
-                  </div>
-              </div>
-
              {isDemoMode && (
                  <div className="px-4 py-2 bg-amber-500/10 text-amber-400 text-[10px] font-black uppercase tracking-widest rounded-xl flex items-center gap-2">
                      <div className="w-1.5 h-1.5 bg-amber-400 rounded-full animate-pulse" />
