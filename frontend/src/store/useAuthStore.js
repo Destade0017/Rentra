@@ -43,8 +43,11 @@ export const useAuthStore = create()(
       // Register action
       register: async (userData) => {
         set({ loading: true, error: null });
+        console.log('Attempting registration with:', { ...userData, password: '***' });
         try {
           const response = await api.post('/auth/register', userData);
+          console.log('Registration response:', response.data);
+          
           if (response.data.success) {
             const registeredUser = response.data.data;
             set({ 
@@ -58,9 +61,11 @@ export const useAuthStore = create()(
               isAuthenticated: true,
               loading: false 
             });
+            console.log('Registration successful, state updated.');
             return { success: true };
           }
         } catch (error) {
+          console.error('Registration failed:', error.response?.data || error.message);
           set({ 
             error: error.response?.data?.message || 'Registration failed', 
             loading: false 
