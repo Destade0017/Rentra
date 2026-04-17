@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-[#F5F7FA] text-slate-900 font-sans antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply tracking-tight font-sans text-brand-500;
+  }
+}
+
+@layer components {
+  .premium-card {
+    @apply bg-white border border-slate-100/60 rounded-3xl shadow-premium hover:shadow-elevated transition-all duration-500;
+  }
+
+  .btn-primary {
+    @apply bg-accent-500 text-white px-6 py-3 rounded-2xl font-bold transition-all duration-300 hover:bg-accent-600 hover:-translate-y-0.5 active:translate-y-0 shadow-lg shadow-accent-500/10;
+  }
+
+  .btn-secondary {
+    @apply bg-white border border-slate-200 text-slate-600 px-6 py-3 rounded-2xl font-bold transition-all duration-300 hover:bg-slate-50 hover:border-slate-300;
+  }
+
+  .input-field {
+    @apply w-full bg-slate-50/50 border border-slate-200 rounded-2xl px-4 py-3 text-slate-900 focus:outline-none focus:ring-4 focus:ring-accent-500/10 focus:border-accent-500 transition-all font-medium;
+  }
+
+  .badge-success {
+    @apply bg-emerald-50 text-emerald-600 border border-emerald-100 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest;
+  }
+
+  .badge-warning {
+    @apply bg-amber-50 text-amber-600 border border-amber-100 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-slate-200 rounded-full hover:bg-slate-300 transition-colors;
+}
+
+.animate-subtle-fade {
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+.animate-subtle-slide {
+  animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes slideUp {
+  0% { transform: translateY(12px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
